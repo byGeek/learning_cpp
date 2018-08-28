@@ -1,0 +1,15 @@
+kt sid=235, cmdid=4
+892246.0 - 14:41:36 988 <I>[CABSocketConnection::PostSendReq:477] ABConn_2 post send[ 11/ 11]: <aa><00><03>U<00><eb><04>end<00>
+892249.7 - 14:41:36 992 <I>[CABSocketConnection::OnMsg:511] ABConn_2 Read 4 bytes
+892249.9 - 14:41:36 992 <I>[CABSocketConnection::OnMsg:511] ABConn_2 Read 7 bytes
+892249.9 - 14:41:36 992 <I>[CABSocketConnection::ProcPkt:685] ABConn_2 Porc pkt sid=236, cmdid=4
+892249.9 - 14:41:36 992 <I>[CABSocketConnection::PostSendReq:477] ABConn_2 post send[ 11/ 11]: <aa><00><03>U<00><ec><04>end<00>
+892252.6 - 14:41:36 995 <I>[CABSocketConnection::OnMsg:511] ABConn_2 Read 4 bytes
+892252.9 - 14:41:36 995 <I>[CABSocketConnection::OnMsg:511] ABConn_2 Read 7 bytes
+892252.9 - 14:41:36 995 <I>[CABSocketConnection::ProcPkt:685] ABConn_2 Porc pkt sid=237, cmdid=4
+892252.9 - 14:41:36 995 <I>[CABSocketConnection::PostSendReq:477] ABConn_2 post send[ 11/ 11]: <aa><00><03>U<00><ed><04>end<00>
+892255.8 - 14:41:36 998 <I>[CABSocketConnection::OnMsg:511] ABConn_2 Read 4 bytes
+892255.9 - 14:41:36 998 <I>[CABSocketConnection::OnMsg:511] ABConn_2 Read 3 bytes
+
+893553.4 - 14:41:38 295 <I>[CABSocketConnection::OnMsg:511] ABConn_2 Read 7 bytes
+893553.5 - 14:41:38 295 <I>[CABSocketConnection::ProcPkt:685] ABConn_2 Porc pkt sid=25, cmdid=4
