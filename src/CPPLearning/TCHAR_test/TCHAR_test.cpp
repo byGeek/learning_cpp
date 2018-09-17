@@ -2,7 +2,6 @@
 //
 
 #include "stdafx.h"
-#include <winnt.h>
 #include <string>
 
 struct Person{

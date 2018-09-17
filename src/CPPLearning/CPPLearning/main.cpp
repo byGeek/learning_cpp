@@ -24,6 +24,7 @@
 #include "Animal.h"
 #include "MyList.h"
 #include <functional>
+#include "BlobT.h"
 
 using namespace std;
 
@@ -1109,12 +1110,26 @@ void seek_tell_test()
 	inout << "\n";
 }
 
+template<typename T> void myprint(const T& t) {
+	std::cout << t << std::endl;
+}
+
+void test_blob_template() {
+	Blob<int> ia;
+	Blob<int> ib = { 1,2,3,4,5 };
+
+	auto value = ib.back();
+	myprint(value);
+
+	Blob<string> ic = { "hello", "world" };
+	myprint(ic[1]);
+}
+
+
 
 int main(void)
 {
-	seek_tell_test();
+	test_blob_template();
 
-
-
-	getchar();
+	std::cin.get();
 }
