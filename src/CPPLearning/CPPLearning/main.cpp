@@ -1125,11 +1125,49 @@ void test_blob_template() {
 	myprint(ic[1]);
 }
 
+#include <array>
 
+void test_std_array() {
+	std::array<int, 3> a2 = { 1, 2, 3 };
+}
+
+void test_known_type() {
+	auto x = 1;
+	auto& y = x;
+	const auto& z = x;
+
+	//使用typeid来获取推导的类型并不可靠，可以使用boost库来达到这个目的
+	myprint(typeid(x).name());
+	myprint(typeid(y).name());
+	myprint(typeid(z).name());
+	//std::cout << typeid(x).name() << std::endl;
+	//std::cout << typeid(y).name() << std::endl;
+}
+
+
+//template<typename... Args>
+//void MyOutputDebugStr(Args... args) {
+//
+//}
+
+void Myoutputdebugstr(const char* format, ...) {
+	va_list	args;
+	va_start(args, format);
+	char buf[512];
+	int n = vsprintf_s(buf, format, args);
+	buf[n] = '\n';
+	buf[n+1] = '\0';
+	OutputDebugString(buf);
+}
+
+void test_output_debug_str() {
+	OutputDebugString("robert age is 24");
+	Myoutputdebugstr("%s age is %d", "robert", 12);
+	Myoutputdebugstr("hello world!");
+}
 
 int main(void)
 {
-	test_blob_template();
-
+	test_output_debug_str();
 	std::cin.get();
 }
