@@ -3,6 +3,7 @@
 #include <string>
 #include <memory>
 
+#include <functional>
 #include "log.h"
 
 class SimpleLogger : public ILogger
@@ -33,9 +34,27 @@ void SimpleLogger::Release() {
 	std::cout << "released!" << std::endl;
 }
 
+void Release(ILogger* logger) {
+	std::cout << "call custom deleter" << std::endl;
+	logger->Release();
+}
+
 
 ILogger* GetLogger() {
 	static ILogger* logger = new SimpleLogger();
+	return logger;
+}
+
+
+
+ILoggerPtr GetLoggerPtr(){
+	ILoggerPtr logger(GetLogger(), Release);
+	//std::shared_ptr<ILogger> logger(GetLogger(), Release);
+	return logger;
+}
+
+ILoggerPtr GetLoggerPtr2() {
+	ILoggerPtr logger(GetLogger(), std::mem_fn(&ILogger::Release));
 	return logger;
 }
 
