@@ -37,6 +37,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SocketClientDemo", "SocketC
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NameReturnValueTest", "NameReturnValueTest\NameReturnValueTest.vcxproj", "{837E31C5-74E0-4077-ADC2-04DC221B3A7C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SocketClientTest", "SocketClientTest\SocketClientTest.vcxproj", "{34FC2F26-E493-4097-AEA4-63C823D0170D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -173,6 +175,14 @@ Global
 		{837E31C5-74E0-4077-ADC2-04DC221B3A7C}.Release|Win32.Build.0 = Release|Win32
 		{837E31C5-74E0-4077-ADC2-04DC221B3A7C}.Release|x64.ActiveCfg = Release|x64
 		{837E31C5-74E0-4077-ADC2-04DC221B3A7C}.Release|x64.Build.0 = Release|x64
+		{34FC2F26-E493-4097-AEA4-63C823D0170D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{34FC2F26-E493-4097-AEA4-63C823D0170D}.Debug|Win32.Build.0 = Debug|Win32
+		{34FC2F26-E493-4097-AEA4-63C823D0170D}.Debug|x64.ActiveCfg = Debug|x64
+		{34FC2F26-E493-4097-AEA4-63C823D0170D}.Debug|x64.Build.0 = Debug|x64
+		{34FC2F26-E493-4097-AEA4-63C823D0170D}.Release|Win32.ActiveCfg = Release|Win32
+		{34FC2F26-E493-4097-AEA4-63C823D0170D}.Release|Win32.Build.0 = Release|Win32
+		{34FC2F26-E493-4097-AEA4-63C823D0170D}.Release|x64.ActiveCfg = Release|x64
+		{34FC2F26-E493-4097-AEA4-63C823D0170D}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -180,6 +190,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{53B2AEA4-A7B2-42D4-8396-8EBAA989F79F} = {4F6617DE-1193-47A8-8BF5-356EE9B1EFCF}
 		{6C88B609-85F6-41B3-B238-3BC565020F43} = {4F6617DE-1193-47A8-8BF5-356EE9B1EFCF}
+		{34FC2F26-E493-4097-AEA4-63C823D0170D} = {4F6617DE-1193-47A8-8BF5-356EE9B1EFCF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5DDDDCFA-446A-478D-A9A0-61149FDA00D9}

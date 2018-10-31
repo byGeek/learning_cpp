@@ -95,6 +95,10 @@ int main() {
 			std::cout << "recv failed with error: " << WSAGetLastError() << "\n";
 		}
 	} while (result > 0);
+	result = shutdown(clientSocket, SD_RECEIVE);
+	if (result == SOCKET_ERROR) {
+		std::cout << "shutdown failed with error: " << WSAGetLastError() << "\n";
+	}
 
 	closesocket(clientSocket);
 
