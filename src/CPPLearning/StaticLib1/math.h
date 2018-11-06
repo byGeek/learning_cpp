@@ -6,4 +6,8 @@ namespace libmathfuncs
 	public:
 		static int add(int a, int b);
 	};
+
+	extern "C" {
+		int sub(int a, int b);
+	}
 }

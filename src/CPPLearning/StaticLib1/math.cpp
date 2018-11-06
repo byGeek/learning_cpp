@@ -5,4 +5,8 @@ namespace libmathfuncs {
 	int my_math_func::add(int a, int b) {
 		return a + b;
 	}
+
+	int sub(int a, int b) {
+		return a - b;
+	}
 }
