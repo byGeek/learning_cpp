@@ -17,3 +17,10 @@ namespace dllmathfuncs {
 	MATH_API int sub(int a, int b);
 }
 
+extern "C" {
+
+	MATH_API int __stdcall foo(int a, int b);
+	MATH_API void __cdecl bar(int a);
+}
+
+

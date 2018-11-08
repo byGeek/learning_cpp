@@ -10,3 +10,12 @@ namespace dllmathfuncs {
 		return a - b;
 	}
 }
+
+
+int __stdcall foo(int a, int b) {
+	return 0;
+}
+
+void __cdecl bar(int a) {
+
+}

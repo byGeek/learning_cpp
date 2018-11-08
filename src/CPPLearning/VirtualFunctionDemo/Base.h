@@ -1,6 +1,7 @@
 //#pragma once
 
 #include <iostream>
+#include <cassert>
 
 class Base
 {
@@ -32,19 +33,43 @@ void test_vtable() {
 	delete b2;
 }
 
-class X {};
 
-class Y : public virtual X{};
-class Z: public virtual X{};
 
-class A:public Y, public Z{};
+struct Base1 {}; // empty class
+
+struct Derived1 : Base1 {
+	int i;
+};
+
+struct Derived2 : Base1 {
+	Base1 c; // Base, occupies 1 byte, followed by padding for i
+	int i;
+};
+
+struct Derived3 : Base1 {
+	Derived1 c; // derived from Base, occupies sizeof(int) bytes
+	int i;
+};
 
 void test_sizeof_class() {
-	size_t temp = sizeof(X); //1
-	temp = sizeof(Y);  //4
-	temp = sizeof(Z);  //4
-	temp = sizeof(A);  //8
+	size_t temp;
+	temp = sizeof(Derived1);  //4
+	temp = sizeof(Derived2);  //8
+	temp = sizeof(Derived3);  //8
+
+	// empty base optimization does not apply,
+	// base occupies 1 byte, Base member occupies 1 byte
+	// followed by 2 bytes of padding to satisfy int alignment requirements
+	assert(sizeof(Derived2) == 2 * sizeof(int));
+
+	// empty base optimization does not apply,
+	// base takes up at least 1 byte plus the padding
+	// to satisfy alignment requirement of the first member (whose
+	// alignment is the same as int)
+	assert(sizeof(Derived3) == 3 * sizeof(int));
 }
+
+
 
 
 class Point3D {

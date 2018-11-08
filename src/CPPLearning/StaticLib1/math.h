@@ -7,7 +7,10 @@ namespace libmathfuncs
 		static int add(int a, int b);
 	};
 
-	extern "C" {
-		int sub(int a, int b);
-	}
+	
+}
+
+extern "C" {
+	int __stdcall sub(int a, int b);
+	int __cdecl mul(int a, int b);
 }
