@@ -23,6 +23,10 @@ int main() {
 	char buf[DEFAULT_LEN];
 	const char* testStr = "this is a socket test";
 
+
+	DWORD timeout = 20;  //20ms test
+
+
 	result = WSAStartup(MAKEWORD(2, 2), &wsaData);
 	if (result != 0) {
 		std::cout << "WSAStartup failed with error: " << WSAGetLastError() << "\n";
@@ -81,6 +85,15 @@ int main() {
 		closesocket(clientSocket);
 		goto FAILED;
 	}
+
+	/*set recv timeout using setsockopt*/
+	/*result = setsockopt(clientSocket, SOL_SOCKET, SO_RCVTIMEO, (const char*)&timeout, sizeof(timeout));
+	if (result == SOCKET_ERROR) {
+		std::cout << "setsockopt failed with error: " << WSAGetLastError() << "\n";
+		closesocket(clientSocket);
+		goto FAILED;
+	}*/
+
 
 	do {
 		result = recv(clientSocket, buf, DEFAULT_LEN, 0);

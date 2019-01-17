@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <memory>
+#include <functional>
 
 #define MY_PRINT std::cout<< __FUNCTION__ << std::endl;
 
@@ -18,7 +19,9 @@ public:
 		MY_PRINT;
 	}
 
-
+	void release() {
+		//do something , release 
+	}
 	//~Investment() {
 	//	delete m_name;
 	//	MY_PRINT;
@@ -30,7 +33,7 @@ protected:
 
 class Stock : public Investment {
 public:
-	Stock(const char* name) : Investment(name){
+ 	Stock(const char* name) : Investment(name){
 		MY_PRINT;
 	}
 
@@ -39,6 +42,7 @@ public:
 	}
 
 };
+
 
 
 //template<typename T>
@@ -54,11 +58,23 @@ std::shared_ptr<Investment> doInvestment() {
 
 std::unique_ptr<Investment> makeInvestment() {
 	//in c++ 11
-	std::unique_ptr<Stock> stock(new Stock("hello"));
-	return stock;
+	//std::unique_ptr<Stock> stock(new Stock("hello"));
+	//return stock;
 
+	auto ptr = new Stock("hello");
+	std::unique_ptr<Investment> pInvest(ptr);
+
+	return std::unique_ptr<Stock>(new Stock("hello"));
+}
+
+std::unique_ptr<Investment> makeInvestment2() {
 	//in c++ 14
-	//return std::make_unique<Stock>("hello");
+	return std::make_unique<Stock>("hello");
+}
+
+template<typename T, typename ... Args>
+std::unique_ptr<T> make_unique(Args&&... params) {
+	return std::unique_ptr<T>(new T(std::forward<Args>(params)...));
 }
 
 /*
