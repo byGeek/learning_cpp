@@ -21,9 +21,30 @@ void test_shared_ptr() {
 	//call derived class dtor corectlly!!!
 } 
 
-int main() {
-	test_unique_ptr();
-	test_shared_ptr();
-	
+void delete_stock(Stock* s) {
+	delete s;
+}
 
+void test_shared_ptr_type() {
+	auto stockDeletor = [](Stock* s) {
+		//logsomething();
+		delete s;
+	};
+
+	std::shared_ptr<Stock> ptr1(new Stock("hello"), stockDeletor);
+	std::shared_ptr<Stock> ptr2(new Stock("hello"), delete_stock);
+}
+
+int main() {
+	//test_unique_ptr();
+	//test_shared_ptr();
+
+	//test_shared_this_exception();
+
+	//test_auto_ptr();
+	//test_weak_ptr();
+	test_observer_pattern_using_weak_ptr();
+	
+	std::cin.get();
+	
 }
