@@ -15,8 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BlockingSocketServer.cpp">
+    <ClCompile Include="async_client.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\AsyncServer\sock_t.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AsyncServer\SockCtrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

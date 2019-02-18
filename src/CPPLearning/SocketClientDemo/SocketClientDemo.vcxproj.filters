@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AsyncSocketClientDemo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="BlockingSocketClient.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

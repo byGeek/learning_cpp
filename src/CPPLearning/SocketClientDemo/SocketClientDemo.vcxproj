@@ -152,7 +152,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BlockingSocketClient.cpp" />
-    <ClCompile Include="AsyncSocketClientDemo.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
