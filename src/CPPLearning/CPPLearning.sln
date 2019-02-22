@@ -83,6 +83,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AsyncServer", "AsyncServer\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AsyncClient", "AsyncClient\AsyncClient.vcxproj", "{D5EBD9C4-8BE6-49C3-BBD5-E37E25111C05}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IOCompletionPortDemo", "IOCompletionPortDemo\IOCompletionPortDemo.vcxproj", "{CC7719AD-ECC8-490A-AB46-010AE6FBABB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -395,6 +397,14 @@ Global
 		{D5EBD9C4-8BE6-49C3-BBD5-E37E25111C05}.Release|Win32.Build.0 = Release|Win32
 		{D5EBD9C4-8BE6-49C3-BBD5-E37E25111C05}.Release|x64.ActiveCfg = Release|x64
 		{D5EBD9C4-8BE6-49C3-BBD5-E37E25111C05}.Release|x64.Build.0 = Release|x64
+		{CC7719AD-ECC8-490A-AB46-010AE6FBABB1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CC7719AD-ECC8-490A-AB46-010AE6FBABB1}.Debug|Win32.Build.0 = Debug|Win32
+		{CC7719AD-ECC8-490A-AB46-010AE6FBABB1}.Debug|x64.ActiveCfg = Debug|x64
+		{CC7719AD-ECC8-490A-AB46-010AE6FBABB1}.Debug|x64.Build.0 = Debug|x64
+		{CC7719AD-ECC8-490A-AB46-010AE6FBABB1}.Release|Win32.ActiveCfg = Release|Win32
+		{CC7719AD-ECC8-490A-AB46-010AE6FBABB1}.Release|Win32.Build.0 = Release|Win32
+		{CC7719AD-ECC8-490A-AB46-010AE6FBABB1}.Release|x64.ActiveCfg = Release|x64
+		{CC7719AD-ECC8-490A-AB46-010AE6FBABB1}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

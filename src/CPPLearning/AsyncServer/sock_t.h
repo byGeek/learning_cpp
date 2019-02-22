@@ -21,6 +21,7 @@ struct sock_t {
 			*/
 
 			closesocket(m_sock);  //must ensure that WSACleanup is not called first
+			m_sock = INVALID_SOCKET;
 		}
 		if (m_buf != NULL) {
 			delete[] m_buf;

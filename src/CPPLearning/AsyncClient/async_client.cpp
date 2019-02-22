@@ -107,6 +107,7 @@ int main() {
 		}
 	}
 
+	CloseHandle(g_dummyEvent);
 	//WSACleanup();
 	return 0;
 }
