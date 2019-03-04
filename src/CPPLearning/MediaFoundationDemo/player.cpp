@@ -310,6 +310,17 @@ HRESULT CPlayer::Invoke(IMFAsyncResult *pResult)
 	else
 	{
 		// For all other events, get the next event in the queue.
+
+		/*
+		ref: https://docs.microsoft.com/en-us/windows/desktop/medfound/step-5--handle-media-session-events
+		This method is asynchronous, meaning it returns to the caller immediately. 
+		When the next session event occurs, the Media Session calls the 
+		IMFAsyncCallback::Invoke method of the CPlayer object.
+
+		which in this case , CPlayer impl the IMFAsyncCallback interface, will call
+		invoke method of this class
+		*/
+
 		hr = m_pSession->BeginGetEvent(this, NULL);
 		if (FAILED(hr))
 		{
