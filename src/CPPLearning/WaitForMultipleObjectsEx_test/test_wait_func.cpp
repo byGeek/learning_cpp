@@ -2,35 +2,44 @@
 #include <process.h>
 #include <cstdio>
 #include <vector>
-
-typedef struct {
-	HANDLE hEvent;
-	char tag[256];
-} HANDLE_T;
+#include <map>  //map the event handle and event name
+#include <string>
+#include <algorithm>
 
 int main() {
 
 	std::vector<HANDLE> hEvents;
+	std::map<HANDLE, std::string> handleName;
 
-	HANDLE_T h1{ CreateEvent(NULL, FALSE, TRUE, NULL), "event1" };
-	HANDLE_T h2{ CreateEvent(NULL, FALSE, TRUE, NULL), "event2" };
+	int cnt = 2;
+	for (int i = 0; i < cnt; ++i) {
+		std::string name("event" + std::to_string(i));
+		HANDLE handle = CreateEvent(NULL, FALSE, TRUE, NULL);
+		if (handle != NULL) {
+			handleName.emplace(handle, name);
+			hEvents.emplace_back(handle);
+		}
+	}
 
-	hEvents.push_back(h1.hEvent);
-	hEvents.push_back(h2.hEvent);
 
 	for (int i = 0; i < 10; ++i) {
 		DWORD r = WaitForMultipleObjectsEx(hEvents.size(), hEvents.data(), false, INFINITE, FALSE);
 		if (r == WAIT_OBJECT_0) {
-			printf("event 0\n");
-			SetEvent(hEvents[0]);  //keep signal event 0 and event 1 will never got its signaled state reset 
-			//because WaitForMultipleObjectsEx will check HANDLE ARRAY by order
-			HANDLE h = hEvents[r];
-			hEvents.erase(hEvents.cbegin() + r);
-			hEvents.push_back(h);
+
+			auto it = handleName.find(hEvents[r]);
+			if (it != handleName.cend()) {
+				printf("%s signaled!\n", it->second.c_str());
+
+				SetEvent(hEvents[r]);  //keep signal event 0 and event 1 will never got its signaled state reset 
+				//because WaitForMultipleObjectsEx will check HANDLE ARRAY by order
+				HANDLE h = hEvents[r];
+				hEvents.erase(hEvents.cbegin() + r);
+				hEvents.push_back(h);
+			}
 
 		}
 		else if (r == WAIT_OBJECT_0 + 1) {
-			printf("event 1\n");
+			printf("WAIT_OBJECT_0 +1\n");
 		}
 		else {
 
@@ -38,6 +47,11 @@ int main() {
 	}
 
 	//close handle
+	auto it = std::cbegin(hEvents);
+	while (it != std::cend(hEvents)) {
+		CloseHandle(*it);
+		++it;
+	}
 
 	getchar();
 }
