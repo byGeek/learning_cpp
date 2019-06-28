@@ -31,7 +31,7 @@ void test_sizeof_XYZ() {
 	temp = sizeof(Y);  //4
 	temp = sizeof(Z);  //4
 	temp = sizeof(A);  //8
-	temp = sizeof(Q);  //4
+	temp = sizeof(Q);  //1
 	temp = sizeof(P);  //4
 
 }

@@ -21,6 +21,12 @@ int main() {
 		NULL
 	);
 	if (h == INVALID_HANDLE_VALUE) {
+		/*
+		if pipe server use high privilege, then client must  also run with high privilege,
+		aka, run as administrator.
+		Otherwise, CreateFile will fail with error code 5, denotes Access Denied
+		
+		*/
 		printf("open pipe failed: %d\n", GetLastError());
 		exit(0);
 	}
@@ -52,6 +58,9 @@ int main() {
 
 	CloseHandle(h);
 
+
+FAILED:
 	getchar();
+
 	exit(0);
 }

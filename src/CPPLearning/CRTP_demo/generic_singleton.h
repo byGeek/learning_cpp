@@ -34,10 +34,9 @@ protected:  //usally ctor should be private to avoid expose publicly, but
 	see ref: https://codereview.stackexchange.com/questions/173929/modern-c-singleton-template
 	Although the constructor is public, it can't be called without a Singleton<T>::token object, 
 	meaning that access to it is now controlled.
+	*/
 
 	struct token{};  
-
-	*/
 };
 
 
@@ -72,7 +71,9 @@ void test_if_single() {
 	cfoo& f1 = cfoo::getInstance();
 	cfoo& f2 = cfoo::getInstance();
 
-	cfoo f3;
+	//cfoo f3;
+
+	//assert(&f1 == &f3);
 
 	//cfoo f3;
 

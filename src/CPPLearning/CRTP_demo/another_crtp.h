@@ -36,7 +36,7 @@ public:
 		return oldhandler;
 	}
 
-	static void* operator new(std::size_t size) throw(std::bad_alloc) {
+	static void* operator new(std::size_t size) /*throw(std::bad_alloc)*/ {
 		NewHandlerHolder hoder(currentHandler);
 		return ::operator new(size);
 	}
