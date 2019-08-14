@@ -127,6 +127,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "crtp_test", "crtp_test\crtp
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vector_concact", "vector_concact\vector_concact.vcxproj", "{02D3BA46-B338-4A5E-937D-FBD166E3A52E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wav_test", "wav_test\wav_test.vcxproj", "{4709B495-B75E-4F3B-B221-EF288979FE20}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -599,6 +601,14 @@ Global
 		{02D3BA46-B338-4A5E-937D-FBD166E3A52E}.Release|Win32.Build.0 = Release|Win32
 		{02D3BA46-B338-4A5E-937D-FBD166E3A52E}.Release|x64.ActiveCfg = Release|x64
 		{02D3BA46-B338-4A5E-937D-FBD166E3A52E}.Release|x64.Build.0 = Release|x64
+		{4709B495-B75E-4F3B-B221-EF288979FE20}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4709B495-B75E-4F3B-B221-EF288979FE20}.Debug|Win32.Build.0 = Debug|Win32
+		{4709B495-B75E-4F3B-B221-EF288979FE20}.Debug|x64.ActiveCfg = Debug|x64
+		{4709B495-B75E-4F3B-B221-EF288979FE20}.Debug|x64.Build.0 = Debug|x64
+		{4709B495-B75E-4F3B-B221-EF288979FE20}.Release|Win32.ActiveCfg = Release|Win32
+		{4709B495-B75E-4F3B-B221-EF288979FE20}.Release|Win32.Build.0 = Release|Win32
+		{4709B495-B75E-4F3B-B221-EF288979FE20}.Release|x64.ActiveCfg = Release|x64
+		{4709B495-B75E-4F3B-B221-EF288979FE20}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

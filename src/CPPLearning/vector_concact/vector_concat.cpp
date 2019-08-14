@@ -7,6 +7,12 @@
 
 class foo {
 public:
+	friend void swap(foo& lhs, foo& rhs) {
+		using std::swap;
+		swap(lhs.data, rhs.data);
+	}
+
+
 	foo() : data(new char[1024]) {
 		std::cout << "foo ctor" << std::endl;
 	}
@@ -23,6 +29,7 @@ public:
 		memcpy_s(data, 1024, rhs.data, 1024);
 	}
 
+	/*
 	foo& operator=(const foo& rhs) {
 		std::cout << "foo copy assign operator" << std::endl;
 		if (this == &rhs) return *this;
@@ -33,24 +40,46 @@ public:
 		memcpy_s(data, 1024, rhs.data, 1024);
 		temp = nullptr;
 		return *this;
-	}
+	}*/
 
-	foo(foo&& rhs) {
-		data = rhs.data;
-		rhs.data = nullptr;
-	}
-
-	foo& operator=(foo&& rhs) {
-
-		//todo: use swap function to get exception-safe
-		if (this == &rhs) return *this;
-
-		delete[] data;
-
-		data = rhs.data;
-		rhs.data = nullptr;
+	foo& operator=(const foo& rhs) {
+		foo temp(rhs);
+		swap(*this, temp);
 		return *this;
 	}
+	
+
+	foo& operator=(foo&& rhs) noexcept {
+
+		/*if (this != &rhs) {
+
+			delete[] data;
+
+			data = rhs.data;
+			rhs.data = nullptr;
+		}
+		return *this;*/
+
+		//use swap function
+		swap(*this, rhs);
+		return *this;
+	}
+
+	foo(foo&& rhs) noexcept {
+		data = rhs.data;
+		rhs.data = nullptr;
+	}
+	/*
+	or use following function to replace copy assign operator AND move assign operator!!!
+
+	if rhs is lvalue, then it will call copy ctor and this will be copy assign operator
+	if rhs is rvalue, then it will call move ctor and this will be move assign operator!!!
+	*/
+
+	/*foo& operator=(foo rhs) {
+		swap(*this, rhs);
+		return *this;
+	}*/
 
 private:
 	char* data;
@@ -72,6 +101,11 @@ void test_simple() {
 	std::cout << std::endl;
 }
 
+foo get_foo() {
+	foo f;
+	return f;
+}
+
 void test_foo_by_value() {
 	//vector foo value
 	/*
@@ -82,6 +116,14 @@ void test_foo_by_value() {
 	std::vector<foo> v1;
 	v1.reserver(3); //不会初始化，只有先申请3个对象的内存， v1.size == 0
 	*/
+
+	foo f1;
+	foo f2;
+	f1 = f2;  //should call copy assign operator?
+
+	foo f3(get_foo());  //should call move ctor
+	foo f4;
+	f4 = f3;
 
 
 	std::vector<foo> v1;
@@ -154,7 +196,8 @@ void test_vector() {
 }
 
 int main() {
-	//test_foo_by_value();
+	test_foo_by_value();
 	//test_foo_by_pointer();
-	test_vector();
+	//test_vector();
+
 }
